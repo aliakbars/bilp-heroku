@@ -12,16 +12,16 @@
 				<th>No</th>
 				<th>Alay</th>
 				<th>Baku</th>
-				<th>Waktu</th>
+				<th>Jumlah</th>
 			</tr>
 		</thead>
 		<tbody>
-			{% for row in dicts %}
+			{% for d in dicts %}
 			<tr>
-				<td>{{ row.id }}</td>
-				<td>{{ row.word_alay }}</td>
-				<td>{{ row.word_normal }}</td>
-				<td>{{ row.created_at }}</td>
+				<td>{{ loop.index }}</td>
+				<td>{{ d.0 }}</td>
+				<td>{{ d.1 }}</td>
+				<td>{{ dicts.d }}</td>
 			</tr>
 			{% endfor %}
 		</tbody>

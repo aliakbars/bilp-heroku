@@ -2,12 +2,13 @@
 import os
 from flask import Flask, current_app, render_template, request, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
+from collections import Counter
 from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jbblhivghyrvcl:NrX5aZQUn4LBBLHCGbtLHTAE-2@ec2-107-20-178-83.compute-1.amazonaws.com:5432/dahaoojl9ifv7t'
 db = SQLAlchemy(app)
-app.debug = False
+app.debug = True
 
 class Dictionary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -46,7 +47,8 @@ def success():
 @app.route('/words', methods=['GET'])
 def words():
 	dicts = Dictionary.query.all()
-	return render_template('words.html', dicts=dicts)
+	c = Counter(((d.word_alay, d.word_normal) for d in dicts))
+	return render_template('words.html', dicts=c)
 
 if __name__ == '__main__':
 	app.run(debug=True,host='0.0.0.0')
