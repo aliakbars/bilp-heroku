@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block nav %}
+<li role="presentation"><a href="/">Beranda</a></li>
+<li role="presentation" class="active"><a href="/words">Kata-kata</a></li>
+{% endblock %}
+{% block content %}
+<div class="row marketing">
+	<h1>Kontribusi Anda</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Alay</th>
+				<th>Normal</th>
+				<th>Waktu</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in dicts %}
+			<tr>
+				<td>{{ row.id }}</td>
+				<td>{{ row.word_alay }}</td>
+				<td>{{ row.word_normal }}</td>
+				<td>{{ row.created_at }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
