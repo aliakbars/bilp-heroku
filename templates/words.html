@@ -19,9 +19,9 @@
 			{% for d in dicts %}
 			<tr>
 				<td>{{ loop.index }}</td>
-				<td>{{ d.0 }}</td>
-				<td>{{ d.1 }}</td>
-				<td>{{ dicts.d }}</td>
+				<td>{{ d[0] }}</td>
+				<td>{{ d[1] }}</td>
+				<td>{{ dicts[d] }}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
