@@ -31,7 +31,7 @@ def hello():
 
 	if request.method == 'POST':
 		if not request.form['word_alay'] or not request.form['word_normal']:
-			errors.append('Please fill out the question and the email address fields!')
+			errors.append('Isilah semua kolom yang tersedia!')
 		else:
 			d = Dictionary(request.form['word_alay'], request.form['word_normal'], request.headers.get('User-Agent'))
 			db.session.add(d)
