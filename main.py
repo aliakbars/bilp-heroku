@@ -7,7 +7,8 @@ from collections import Counter
 from datetime import datetime
 
 app = Flask(__name__)
-heroku = Heroku(app)
+# heroku = Heroku(app)
+app.config['POSTGRESQL_DATABASE_URI'] = 'postgresql://postgres:psql@localhost:5432/bilp'
 db = SQLAlchemy(app)
 app.debug = False
 app.secret_key = 'jbblhivghyrvcl_ec2-107-20-178-83'

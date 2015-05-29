@@ -57,6 +57,9 @@
 
       ga('create', 'UA-58703941-6', 'auto');
       ga('send', 'pageview');
+      document.getElementById('dictionary-form').onsubmit = function() {
+        ga('send', 'event', {eventCategory: 'Dictionary', eventAction: 'Input Word'});
+      }
 
     </script>
   </body>
