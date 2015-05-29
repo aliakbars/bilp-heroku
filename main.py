@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-from flask import Flask, current_app, render_template, request, redirect
+from flask import Flask, flash, current_app, render_template, request, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
 from collections import Counter
 from datetime import datetime
@@ -8,7 +8,8 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jbblhivghyrvcl:NrX5aZQUn4LBBLHCGbtLHTAE-2@ec2-107-20-178-83.compute-1.amazonaws.com:5432/dahaoojl9ifv7t'
 db = SQLAlchemy(app)
-app.debug = True
+app.debug = False
+app.secret_key = 'jbblhivghyrvcl_ec2-107-20-178-83'
 
 class Dictionary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -37,7 +38,8 @@ def hello():
 			d = Dictionary(request.form['word_alay'], request.form['word_normal'], request.headers.get('User-Agent'))
 			db.session.add(d)
 			db.session.commit()
-			return redirect('/success')
+			flash('Data berhasil tersimpan.')
+			return redirect('/')
 	return render_template('index.html', errors=errors)
 
 @app.route('/success', methods=['GET'])

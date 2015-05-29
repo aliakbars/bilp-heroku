@@ -2,6 +2,15 @@
 {% block content %}
 <div class="jumbotron">
 	<h1>Kamus Alay</h1>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<div class="col-sm-12 alert alert-success">
+		<p><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> {{ message }}</p>
+	</div>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
 	<form action="" method="post" class="lead">
 		<div class="form-group col-sm-12">
 			<input type="text" id="word_alay" name="word_alay" class="form-control" placeholder="Masukkan satu kata alay (e.g. gw)">
