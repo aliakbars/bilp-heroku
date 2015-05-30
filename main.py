@@ -51,7 +51,8 @@ def success():
 def words():
 	dicts = Dictionary.query.all()
 	c = Counter(((d.word_alay, d.word_normal) for d in dicts))
-	return render_template('words.html', dicts=c)
+	d = sorted(c.items())
+	return render_template('words.html', dicts=d)
 
 if __name__ == '__main__':
 	app.run(debug=True,host='0.0.0.0')
