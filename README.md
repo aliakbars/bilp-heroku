@@ -8,7 +8,7 @@ Untuk menjalankan aplikasi ini secara lokal, silakan _clone_ repositori ini deng
 
 lalu install `virtualenv`  dengan menggunakan _package manager_ Python
 
-    sudo pip install virtualenv
+    pip install virtualenv
 
 atau dengan cara apapun yang Anda suka -- mungkin Anda lebih senang mengompilasi semuanya sendiri?
 
