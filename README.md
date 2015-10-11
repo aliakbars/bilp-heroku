@@ -30,4 +30,4 @@ Selamat bereksperimen!
 
 ***
 
-* Dalam konfirmasi
+*) Dalam konfirmasi
