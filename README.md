@@ -16,7 +16,11 @@ Buatlah folder `venv` pada repositori yang telah Anda _clone_ dengan perintah
 
     virtualenv venv
 
-Kemudian, Anda dapat menginstalasi semua _dependency_ yang dibutuhkan dengan menggunakan perintah
+Pastikan Anda telah mengaktifkan _virtual environment_ Anda dengan menggunakan perintah
+
+    source venv/bin/activate
+
+Anda dapat melihat bahwa _virtual environment_ sudah aktif dengan melihat tanda `(venv)` di shell Anda. Kemudian, Anda dapat menginstalasi semua _dependency_ yang dibutuhkan dengan menggunakan perintah
 
     pip install -r requirements.txt
 
