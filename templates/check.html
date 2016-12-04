@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block nav %}
+<li role="presentation"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Beranda</a></li>
+<li role="presentation"><a href="/words"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Kata-kata</a></li>
+<li role="presentation"><a href="/sentence"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Kalimat</a></li>
+<li role="presentation" class="active"><a href="/check"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> KBBI</a></li>
+{% endblock %}
+{% block content %}
+<div class="row marketing">
+	<h1>Daftar Kalimat</h1>
+	<h4>Hijau berarti ada di KBBI, merah tidak ada.</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Source</th>
+				<th>Kalimat</th>
+				<th>Words</th>
+				<th/>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in rows %}
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{ row[1] }}</td>
+				<td>{{ row[2] }}</td>
+				<td>
+					{% for word in row[3] %}
+						<font color={% if word[1] %}"#3CE769"{% else %}"#E73C42"{% endif %}>{{ word[0] }}</font>
+					{% endfor %}
+				</td>
+				<td><a href="/check?id={{ row[0] }}" class="btn btn-xs btn-info" role="button">Check</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
